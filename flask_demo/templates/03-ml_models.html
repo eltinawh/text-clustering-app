@@ -1,0 +1,63 @@
+{% extends "01-base.html"%}
+{% block content %}
+<h2>Machine Learning Models</h2>
+
+<h4>Text Clustering</h4>
+
+    <p>
+        Clustering is an unsupervised machine learning method that converts unstructured data into structured data to get some sense out of it. 
+        This app uses natural language processing (NLP) techniques to clean up free texts and k-means to cluster them.
+    </p>
+
+    <p>
+        Inputs<br>This model needs number of clusters and a text file with extension .csv or .txt containing at least a column of text like below. 
+        English-only please.
+    </p>
+
+    <table style="width:100%">
+        <tr>
+          <th>doc_id</th>
+          <th>text</th> 
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>I'm happy today, can't you see it shows on my face? Says a stoic.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sadness is my new normal. Welcome depression! Or where are you sunlight?</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>I am experiencing mania. Such a spiritual bliss.</td>
+        </tr>
+    </table>
+    <br/>
+
+    <p>        
+        Output<br>A zipped excel file with sheets comprised of cluster assignment, top keywords for each cluster, and number of documents in each of the clusters respectively.
+    </p>
+
+    <p> 
+        <!--0.0.0.0:8089/apidocs/#-->       
+        API<br>You can also access the model through the <a href="http://0.0.0.0:8000/apidocs/#/">Flasgger API</a>.
+        <ul>
+            <li>Expand the /text_clustering_api</li>
+            <li>Press button "Try it out"</li>
+            <li>Upload your input file and define the desired number of clusters</li>
+            <li>Press button "Execute"</li>
+            <li>In the Responses section, find Response body and click "Download file"</li>
+        </ul>
+    </p>    
+
+    <form method = "POST" enctype = "multipart/form-data">
+        {{ form.hidden_tag() }}
+        Finally<br>
+        <i>Please specify your inputs here:</i><br>
+        {{ form.no_of_clusters.label }} {{ form.no_of_clusters }}
+        <br/>
+        {{ form.input_file.label }} {{ form.input_file }}
+        <br/>
+        {{ form.submit }}
+    </form>
+{% endblock %}

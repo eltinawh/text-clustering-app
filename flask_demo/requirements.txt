@@ -1,0 +1,9 @@
+flasgger
+flask
+wtforms
+flask-wtf
+werkzeug
+mod_wsgi
+openpyxl
+xlsxwriter
+stemming
