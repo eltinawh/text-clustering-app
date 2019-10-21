@@ -8,7 +8,9 @@ The app cleans up free texts and applies k-means to cluster them. Deployed with 
 4. Docker
    - base: miniconda3
 
-**App look**
+### App look
+**UI Version**
 ![UI version](./img/text-clustering-app-ui.png)
 
+**API Version**
 ![API version](./img/text-clustering-app-api.png)
